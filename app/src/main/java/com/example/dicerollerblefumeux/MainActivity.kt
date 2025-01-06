@@ -3,6 +3,7 @@ package com.example.dicerollerblefumeux
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,10 +24,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
-        val dice = Dice(6)
-        val diceRoll = dice.roll()
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = diceRoll.toString()
+        val dice1 = Dice(6)
+        val dice2 = Dice(6)
+        val resultd1: TextView = findViewById(R.id.d1)
+        resultd1.text = dice1.roll().toString()
+        val resultd2: TextView = findViewById(R.id.d2)
+        resultd2.text = dice2.roll().toString()
+        if (resultd1.text == resultd2.text) {
+            Toast.makeText(applicationContext, "Victoire !", Toast.LENGTH_SHORT).show()
+        }
     }
 }
 
